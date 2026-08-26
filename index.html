@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter-Sell</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <!-- Hero Section -->
+ <div class="banner">
+    <div class="banner-content">
+        <p class="subtitle">SALE FEVER</p>
+        <h1>Purchase TK 200 or<br>above & get <span>20% OFF</span></h1>
+        <div class="promo-box">
+          <span>Use Promo Code</span>
+          <button class="promo-btn">SELL200</button>
+        </div>
+    </div>
+  </div>
+
+  <main class="container">
+  <!-- Left Side: Product Sections -->
+  <section class="products-section">
+    <!-- Beauty Products -->
+    <h2 class="section-title">Beauty Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="img-box"><img src="img/b 1.jpg" alt="Ilia Make Up" onclick="openSimilarModal('Ilia Make Up', 590, 'img/b 1.jpg')"></div>
+        <div class="rating">★★★★★</div>
+        <h3 class="product-name">Ilia Make Up</h3>
+        <p class="price">590.00 TK</p>
+      </div>
+      <div class="product-card">
+        <div class="img-box"><img src="img/b 2.jpg" alt="Make Up For Ever" onclick="openSimilarModal('Make Up For Ever', 425, 'img/b 2.jpg')"></div>
+        <div class="rating">★★★★★</div>
+        <h3 class="product-name">Make Up For Ever</h3>
+        <p class="price">425.00 TK</p>
+      </div>
+      <div class="product-card">
+        <div class="img-box"><img src="img/b 3.jpg" alt="Multi-Vitamins" onclick="openSimilarModal('Multi-Vitamins', 490, 'img/b 3.jpg')"></div>
+        <div class="rating">★★★★★</div>
+        <h3 class="product-name">Multi-Vitamins</h3>
+        <p class="price">490.00 TK</p>
+      </div>
+    </div>
+
+    <!-- Winter Products -->
+    <h2 class="section-title">Winter Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="img-box"><img src="img/w 1.jpg" alt="Sweater-Shawl" onclick="openSimilarModal('Sweater-Shawl', 350, 'img/w 1.jpg')"></div>
+        <div class="rating">★★★★★</div>
+        <h3 class="product-name">Sweater-Shawl</h3>
+        <p class="price">350.00 TK</p>
+      </div>
+      <div class="product-card">
+        <div class="img-box"><img src="img/w 2.jpg" alt="Muffler" onclick="openSimilarModal('Muffler', 290, 'img/w 2.jpg')"></div>
+        <div class="rating">★★★★★</div>
+        <h3 class="product-name">Muffler</h3>
+        <p class="price">290.00 TK</p>
+      </div>
+      <div class="product-card">
+        <div class="img-box"><img src="img/w 3.jpg" alt="Earmuffs" onclick="openSimilarModal('Earmuffs', 550, 'img/w 3.jpg')"></div>
+        <div class="rating">★★★★★</div>
+        <h3 class="product-name">Earmuffs</h3>
+        <p class="price">550.00 TK</p>
+      </div>
+    </div>
+     <!-- other Products -->
+    <h2 class="section-title">Other Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="img-box"><img src="img/other 1.jpg" alt="Concealer" onclick="openSimilarModal('Concealer', 590, 'img/other 1.jpg')"></div>
+        <div class="rating">★★★★★</div>
+        <h3 class="product-name">Concealer</h3>
+        <p class="price">590.00 TK</p>
+      </div>
+      <div class="product-card">
+        <div class="img-box"><img src="img/other 2.jpg" alt="Highlighter" onclick="openSimilarModal('Highlighter', 425, 'img/other 2.jpg')"></div>
+        <div class="rating">★★★★★</div>
+        <h3 class="product-name">Highlighter</h3>
+        <p class="price">425.00 TK</p>
+      </div>
+      <div class="product-card">
+        <div class="img-box"><img src="img/other 3.jpg" alt="Face Wash" onclick="openSimilarModal('Face Wash', 490, 'img/other 3.jpg')"></div>
+        <div class="rating">★★★★★</div>
+        <h3 class="product-name">Face Wash</h3>
+        <p class="price">490.00 TK</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Right Side: Coupon & Cart Summary -->
+  <aside class="cart-summary-section">
+    <!-- Coupon Box -->
+    <div class="sidebar-box coupon-box">
+      <h3>Have Coupon?</h3>
+      <div class="coupon-input">
+        <input type="text" id="coupon-code" placeholder="Coupon code">
+        <button class="btn-apply">Apply</button>
+      </div>
+    </div>
+
+    <!-- Total Breakdown -->
+    <div class="sidebar-box price-box">
+      <p>Total price: <span id="total-price">0.00TK</span></p>
+      <p>Discount: <span id="discount">00TK</span></p>
+      <p class="final-total">Total: <span id="grand-total">0.00TK</span></p>
+    </div>
+
+    <!-- Purchase Button -->
+    <button class="btn-purchase">Make Purchase</button>
+  </aside>
+</main>
+
+
+
+ <!-- Similar Products Popup Modal -->
+<div id="product-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2 id="modal-title">Product Details & Similar Items</h2>
+    
+    <!-- মূল ক্লিক করা প্রোডাক্টের মেসেজ -->
+    <div id="modal-main-info"></div>
+    
+    <hr style="margin: 15px 0; border: 0; border-top: 1px solid #ccc;">
+    
+    <h3>You Might Also Like:</h3>
+    <!-- জাভাস্ক্রিপ্ট দিয়ে এখানে ছবি, নাম, প্রাইস লোড হবে -->
+    <div id="similar-products-grid" class="similar-grid"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
