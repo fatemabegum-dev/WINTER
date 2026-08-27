@@ -2,21 +2,21 @@ let totalPrice = 0;
 let discountAmount = 0;
 let isCouponApplied = false;
 
-// ১. প্রোডাক্টে ক্লিক করলে কার্টে দাম যোগ করার ফাংশন
+// ১. প্রোডাক্টে ক্লিক করলে কার্টে দাম যোগ করার ফাংশন---------------
 function addToCart(element, price) {
   totalPrice += parseFloat(price);
 
   if (isCouponApplied) {
-    discountAmount = totalPrice * 0.20; // ২০% ছাড়
+    discountAmount = totalPrice * 0.20; // ২০% ছাড়------------
   }
 
   updateDisplay();
 }
 
-// ২. পেজ লোড হলে Apply এবং Make Purchase বাটনে ক্লিক অ্যাকশন যুক্ত করা
+// ২. পেজ লোড হলে Apply এবং Make Purchase বাটনে ক্লিক অ্যাকশন যুক্ত করা--------------
 document.addEventListener('DOMContentLoaded', () => {
 
-  // কুপন অ্যাপ্লাই বাটন
+  // কুপন অ্যাপ্লাই বাটন----------------
   const applyBtn = document.querySelector('.btn-apply');
   if (applyBtn) {
     applyBtn.addEventListener('click', function (e) {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // মেক পারচেজ বাটন
+  // মেক পারচেজ বাটন--------------
   const purchaseBtn = document.querySelector('.btn-purchase');
   if (purchaseBtn) {
     purchaseBtn.addEventListener('click', function (e) {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (totalPrice > 0) {
         alert("Thank you! Your order has been placed successfully.");
 
-        // কেনাকাটা শেষ হলে কার্ট খালি করা
+        // কেনাকাটা শেষ হলে কার্ট খালি করা---------------
         totalPrice = 0;
         discountAmount = 0;
         isCouponApplied = false;
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// ৩. স্ক্রিনে হিসাব আপডেট করার ফাংশন
+// ৩. স্ক্রিনে হিসাব আপডেট করার ফাংশন------------------
 function updateDisplay() {
   const grandTotal = totalPrice - discountAmount;
 
@@ -90,7 +90,7 @@ function updateDisplay() {
 
 
 
-// সব ক্যাটাগরির প্রোডাক্টের সিমিলার আইটেম এই একটিমাত্র অবজেক্টে থাকবে
+// সব ক্যাটাগরির প্রোডাক্টের সিমিলার আইটেম এই একটিমাত্র অবজেক্টে থাকবে--------------
 const similarProductsData = {
   
   // --- ১. Beauty Products---
@@ -159,9 +159,9 @@ const similarProductsData = {
 
 
 
-// ২. ছবিতে ক্লিক করলে পপ-আপ খোলা এবং কার্টে যোগ হওয়া
+// ২. ছবিতে ক্লিক করলে পপ-আপ খোলা এবং কার্টে যোগ হওয়া------------
 function openSimilarModal(name, price, imagePath) {
-  // কার্টে মেইন প্রোডাক্ট যোগ করা
+  // কার্টে মেইন প্রোডাক্ট যোগ করা-------------
   totalPrice += parseFloat(price);
   if (isCouponApplied) discountAmount = totalPrice * 0.20;
   updateDisplay();
@@ -170,12 +170,12 @@ function openSimilarModal(name, price, imagePath) {
   const mainInfo = document.getElementById('modal-main-info');
   const grid = document.getElementById('similar-products-grid');
 
-  // মেইন প্রোডাক্ট নোটিফিকেশন
+  // মেইন প্রোডাক্ট নোটিফিকেশন-------------
   mainInfo.innerHTML = `
     <p>✔ <strong>${name}</strong> (${price} TK) added to cart!</p>
   `;
 
-  // সিমিলার প্রোডাক্ট শো করা
+  // সিমিলার প্রোডাক্ট শো করা------------
   grid.innerHTML = "";
   if (similarProductsData[name]) {
     similarProductsData[name].forEach(item => {
@@ -193,7 +193,7 @@ function openSimilarModal(name, price, imagePath) {
   modal.style.display = "block";
 }
 
-// ৩. পপ-আপের ভেতর থেকে সিমিলার প্রোডাক্ট কার্টে যোগ করা
+// ৩. পপ-আপের ভেতর থেকে সিমিলার প্রোডাক্ট কার্টে যোগ করা----------
 function addSimilarToCart(name, price) {
   totalPrice += parseFloat(price);
   if (isCouponApplied) discountAmount = totalPrice * 0.20;
@@ -201,7 +201,7 @@ function addSimilarToCart(name, price) {
   alert(`${name} has been added to your cart!`);
 }
 
-// ৪. কুপন এবং পারচেজ বাটন কানেক্ট
+// ৪.Coupon & Purchase button connect-------------
 document.addEventListener('DOMContentLoaded', () => {
   // Close Modal Event
   const modal = document.getElementById('product-modal');
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeBtn) closeBtn.onclick = () => modal.style.display = "none";
   window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
 
-  // Apply Coupon
+  // Apply Coupon-----------
   const applyBtn = document.querySelector('.btn-apply');
   if (applyBtn) {
     applyBtn.addEventListener('click', (e) => {
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Make Purchase
+  // Make Purchase-----------
   const purchaseBtn = document.querySelector('.btn-purchase');
   if (purchaseBtn) {
     purchaseBtn.addEventListener('click', (e) => {
@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ৫. ডিসপ্লে আপডেট
+// ৫. Display Update-----------
 function updateDisplay() {
   const grandTotal = totalPrice - discountAmount;
   let totalElem = document.getElementById('total-price');
